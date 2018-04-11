@@ -1,5 +1,14 @@
-// Global app controller
-import x from './test';
-const y = 23;
+import axios from 'axios';
+import * as config from './config';
 
-console.log(`the number is ${x}. Variable y is ${y}`);
+async function getResults(query) {
+    try {
+        const res = await axios(`${config.crossOrigin}${config.url}?key=${config.key}&q=${query}`);
+        const recipes = res.data.recipes;
+        console.log(recipes);
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+getResults('pizza');
