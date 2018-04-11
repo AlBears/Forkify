@@ -1,14 +1,5 @@
-import axios from 'axios';
-import * as config from './config';
+import Search from './models/Search';
 
-async function getResults(query) {
-    try {
-        const res = await axios(`${config.crossOrigin}${config.url}?key=${config.key}&q=${query}`);
-        const recipes = res.data.recipes;
-        console.log(recipes);
-    } catch (error) {
-        console.log(error);
-    }
+const search = new Search('pizza');
 
-}
-getResults('pizza');
+search.getResults();
