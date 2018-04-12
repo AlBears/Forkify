@@ -8,7 +8,7 @@ export default class Search {
 
     async getResults() {
         try {
-            const res = await axios(`${config.crossOrigin}${config.url}?key=${config.key}&q=${this.query}`);
+            const res = await axios(`${config.proxy}${config.url}search?key=${config.key}&q=${this.query}`);
             this.result = res.data.recipes;
         } catch (error) {
             console.log(error);
