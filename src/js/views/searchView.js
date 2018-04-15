@@ -22,12 +22,15 @@ const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
     if (title.length > limit) {
         title.split(' ').reduce((acc, cur) => {
+            if(cur.length > limit) {
+                cur = cur.slice(0, 10);
+            }
             if (acc + cur.length <= limit) {
                 newTitle.push(cur);
-            }
+            } 
             return acc + cur.length;
         }, 0);
-
+        console.log(title.split(' '));
         return `${newTitle.join(' ')}...`;
     }
     return title;
