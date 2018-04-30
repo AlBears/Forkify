@@ -30,7 +30,6 @@ const limitRecipeTitle = (title, limit = 17) => {
             } 
             return acc + cur.length;
         }, 0);
-        console.log(title.split(' '));
         return `${newTitle.join(' ')}...`;
     }
     return title;
